@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Personalized Greeting System</title>
+</head>
+<body>
+
+    <h1>Student Greeting System</h1>
+    
+    <div>
+        <label for="studentName">Enter Student Name:</label>
+        <input type="text" id="studentName" placeholder="e.g., [enter your own nickname]">
+    </div>
+    
+    <button id="greetBtn">Greet Student</button>
+    
+    <div id="greetingOutput"></div>
+
+    <script>
+        document.getElementById('greetBtn').addEventListener('click', function() {
+            const nameInput = document.getElementById('studentName').value.trim();
+            const outputDiv = document.getElementById('greetingOutput');
+
+            if (nameInput === "") {
+                outputDiv.textContent = "Please enter a valid name.";
+            } else {
+                outputDiv.textContent = "Welcome, " + nameInput;
+            }
+        });
+
+        document.getElementById('studentName').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                document.getElementById('greetBtn').click();
+            }
+        });
+    </script>
+
+</body>
+</html>
